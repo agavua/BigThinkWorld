@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      margin: 0;
+      background: black;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      height: 100vh;
+      font-family: sans-serif;
+      color: white;
+    }
+    .timeline-ui {
+      text-align: center;
+      padding-bottom: 40px;
+    }
+    h1 { font-size: 2rem; margin-bottom: 8px; }
+    p  { font-size: 1rem; color: #aaa; margin-bottom: 24px; }
+    .arrows {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      justify-content: center;
+    }
+    button {
+      background: white;
+      color: black;
+      border: none;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+    button:hover { background: #ddd; }
+    .era-name {
+      font-size: 1.4rem;
+      min-width: 150px;
+    }
+  </style>
+</head>
+<body>
+  <div class="timeline-ui">
+    <h1 id="year">1800s</h1>
+    <p id="description">Edo period — feudal Tokyo</p>
+    <div class="arrows">
+      <button onclick="changeEra(-1)">←</button>
+      <span class="era-name" id="era-name">Edo Period</span>
+      <button onclick="changeEra(1)">→</button>
+    </div>
+  </div>
+
+  <script>
+   const eras = [
+  { year: "1800s", name: "Old Shanghai",      description: "Qing Dynasty — temples, canals, traditional markets" },
+  { year: "1900s", name: "Colonial Shanghai", description: "The Bund era — European buildings meet Chinese culture" },
+  { year: "2010s", name: "Modern Shanghai",   description: "Megacity — Pudong skyline, neon, bullet trains" },
+  { year: "2020s", name: "Future Shanghai",   description: "Hypermodern — smart city, futuristic towers" }
+]
+
+    let current = 0
+
+    function changeEra(direction) {
+      current = (current + direction + eras.length) % eras.length
+      document.getElementById('year').textContent        = eras[current].year
+      document.getElementById('era-name').textContent   = eras[current].name
+      document.getElementById('description').textContent = eras[current].description
+    }
+  </script>
+</body>
+</html>
