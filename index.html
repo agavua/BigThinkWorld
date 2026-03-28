@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+</script>
+</head>
+<body>
+<script type="module">
+    import * as GaussianSplats3D from 'https://cdn.jsdelivr.net/npm/@mkkellogg/gaussian-splats-3d@0.4.7/build/gaussian-splats-3d'
+
+    const viewer = new GaussianSplats3D.Viewer({
+        initialCameraPosition: [0, 0, 0],
+        initialCameraLookAt: [0, 0, 3],
+        sharedMemoryForWorkers: false,
+    });
+
+    viewer.addSplatScene('./OrientalPearl2000.spz')
+        .then(() => viewer.start());
+</script>
+</body>
+</html>
+
+/* call python -m http.server 8000 */
+/* then go to  http://localhost:8000/*/
