@@ -1,2 +1,2 @@
 # BigThinkWorld
-Tokyo loc
+Shangai
